@@ -8,6 +8,7 @@ Automatically generates and emails weekly reports about Replicate model populari
 - **Biggest Gainers**: Models with largest absolute and percentage increases
 - **New Models**: Recently added models with their initial traction
 - **Trend Analysis**: Week-over-week comparison with percentage changes
+- **HTML Email Format**: Professional-looking reports with responsive design
 
 ## Setup
 
@@ -30,7 +31,7 @@ The tool uses SMTP to send emails. You can use:
 For local testing, create a `.env` file:
 
 ```bash
-TO_EMAIL=your-email@example.com
+TO_EMAILS=email1@example.com,email2@example.com,email3@example.com
 FROM_EMAIL=reports@yourdomain.com
 SMTP_HOST=smtp.gmail.com
 SMTP_PORT=587
@@ -44,7 +45,7 @@ SMTP_PASS=your-app-password
 - Yahoo: `smtp.mail.yahoo.com:587`
 
 For GitHub Actions, add these as repository secrets:
-- `TO_EMAIL`
+- `TO_EMAILS` (comma-separated list)
 - `FROM_EMAIL` 
 - `SMTP_HOST`
 - `SMTP_PORT` (optional, defaults to 587)
@@ -87,7 +88,7 @@ The weekly report includes:
 3. **Biggest Gainers (Percentage)**: Models with highest percentage growth (minimum 1000 runs last week)
 4. **New Models**: Models that appeared for the first time this week
 
-Each section shows up to 10 models with run counts, changes, and direct links.
+Each section shows up to 10 models with run counts, changes, descriptions, and direct links in a responsive HTML format.
 
 ## Customization
 
